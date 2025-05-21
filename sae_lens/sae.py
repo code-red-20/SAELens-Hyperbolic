@@ -490,7 +490,7 @@ class SAE(HookedRootModule):
         # handle hook z reshaping if needed.
         return self.reshape_fn_out(sae_out, self.d_head)  # type: ignore
 
-   def decode_hyperbolic(
+    def decode_hyperbolic(
         self, feature_acts: Float[torch.Tensor, "... d_sae"]
     ) -> Float[torch.Tensor, "... d_in"]:
         """Decodes SAE feature activation tensor into a reconstructed input activation tensor."""
