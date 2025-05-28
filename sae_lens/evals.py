@@ -623,6 +623,9 @@ def get_recons_loss(
         if activation_store.normalize_activations == "expected_average_only_in":
             new_activations = activation_store.unscale(new_activations)
 
+        print("activations.shape:", activations.shape)
+        print("new_activations.shape:", new_activations.shape)
+
         new_activations = torch.where(mask[..., None], new_activations, activations)
 
         return new_activations.to(original_device)
