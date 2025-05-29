@@ -109,8 +109,7 @@ class SAETrainingRunner:
         )
 
         self._compile_if_needed()
-        # sae = self.run_trainer_with_interruption_handling(trainer)
-        sae = self.run()
+        sae = self.run_trainer_with_interruption_handling(trainer)
 
         if self.cfg.log_to_wandb:
             wandb.finish()
