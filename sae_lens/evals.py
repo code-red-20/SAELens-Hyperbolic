@@ -618,6 +618,7 @@ def get_recons_loss(
 
         # SAE class agnost forward forward pass.
         new_activations = sae.decode(sae.encode(activations)).to(activations.dtype)
+        new_activations = new_activations.view(activations.shape[0], activations.shape[1], -1) # reshape fix
 
         # Unscale if activations were scaled prior to going into the SAE
         if activation_store.normalize_activations == "expected_average_only_in":
